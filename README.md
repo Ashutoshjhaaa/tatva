@@ -4,7 +4,7 @@
 
 A modern digital library engineered to preserve and prevent the loss of ancient Indian wisdom. *Tatva* provides a distraction-free, interconnected reading experience for the Vedas, Epics, and Puranas, bridging the gap between ancient Sanskrit texts and the modern digital reader.
 
-![Tatva Preview](https://github.com/JDhruv14/tatva/blob/main/public/og_home.png)
+![Tatva Preview](https://github.com/ashutoshjhadev/tatva/blob/main/public/og_home.png)
 
 ## Distinctive Features
 
@@ -54,8 +54,8 @@ public/                  # Static Assets
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/JDhruv14/dhruv-gnan.git
-   cd dhruv-gnan
+   git clone https://github.com/ashutoshjhaaa/tatva.git
+   cd tatva
    ```
 
 2. **Install dependencies**
@@ -79,13 +79,13 @@ public/                  # Static Assets
 
 If you find value in this project, you can support its development:
 
-[![GitHub Sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=github-sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/JDhruv14)
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jdhruv14)
+[![GitHub Sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=github-sponsors&logoColor=#EA4AAA)](https://github.com/ashutoshjhaaa)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/ashutoshjhadev)
 
 ---
 
 ## Creator
 
-Built by [@dhruvtwt_](https://x.com/dhruvtwt_)
+Built by [@ashutoshjhadev_](https://x.com/ashutoshjhadev_)
 
 
