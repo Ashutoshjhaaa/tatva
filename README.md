@@ -4,7 +4,7 @@
 
 A modern digital library engineered to preserve and prevent the loss of ancient Indian wisdom. *Tatva* provides a distraction-free, interconnected reading experience for the Vedas, Epics, and Puranas, bridging the gap between ancient Sanskrit texts and the modern digital reader.
 
-![Tatva Preview](https://github.com/ashutoshjhadev/tatva/blob/main/public/og_home.png)
+![Tatva Preview](/public/og_home.png)
 
 ## Distinctive Features
 
@@ -86,6 +86,6 @@ If you find value in this project, you can support its development:
 
 ## Creator
 
-Built by [@ashutoshjhadev_](https://x.com/ashutoshjhadev_)
+Built by [@ashutoshjhadev_](https://x.com/ashutoshjhadev)
 
 

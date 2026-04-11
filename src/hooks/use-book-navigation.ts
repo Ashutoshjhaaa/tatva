@@ -36,12 +36,12 @@ export const useBookNavigation = (bookCode: string) => {
 
       if (bookError || !book) return null;
 
-      // Fetch all sections
+      // FIX: Use display_order instead of section_number (which doesn't exist in DB)
       const { data: sections, error: sectionsError } = await supabase
         .from("sections")
-        .select("id, section_number, name_english, name_hindi")
+        .select("id, display_order, name_english, name_hindi")
         .eq("book_id", book.id)
-        .order("section_number", { ascending: true });
+        .order("display_order", { ascending: true });
 
       if (sectionsError || !sections) return null;
 
@@ -57,10 +57,11 @@ export const useBookNavigation = (bookCode: string) => {
 
       if (chaptersError) return null;
 
-      // Group chapters by section
+      // FIX: Group chapters using display_order as the key (matches the URL number)
       const chaptersBySection: Record<number, Chapter[]> = {};
       sections.forEach((section) => {
-        chaptersBySection[section.section_number] =
+        const key = section.display_order ?? 0;
+        chaptersBySection[key] =
           chapters
             ?.filter((c) => c.section_id === section.id)
             .map((c) => ({
@@ -73,9 +74,10 @@ export const useBookNavigation = (bookCode: string) => {
       });
 
       return {
+        // FIX: Map display_order to section_number so the rest of the UI works unchanged
         sections: sections.map((s) => ({
           id: s.id,
-          section_number: s.section_number,
+          section_number: s.display_order ?? 0,
           name_english: s.name_english,
           name_hindi: s.name_hindi,
         })),
@@ -85,4 +87,3 @@ export const useBookNavigation = (bookCode: string) => {
     enabled: !!bookCode,
   });
 };
-

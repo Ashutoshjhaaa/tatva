@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     "रामायण",
     "भगवद्गीता",
   ],
-  authors: [{ name: "Dhruv", url: "https://tatva.info" }],
-  creator: "Dhruv",
+  authors: [{ name: "Ashutosh Jha", url: "https://tatva.vercel.app" }],
+  creator: "Ashutosh Jha",
   publisher: "Tatva",
   robots: {
     index: true,
@@ -70,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@dhruvtwt_",
-    creator: "@dhruvtwt_",
+    site: "@ashutoshjhadev",
+    creator: "@ashutoshjhadev",
     title: "तत्त्व (Tatva) - Digital Museum of Ancient Indian Scriptures",
     description:
       "Discover ancient Indian texts through a modern digital library designed to make reading, exploration, and understanding more approachable and interconnected.",
@@ -161,14 +161,14 @@ export default function RootLayout({
               url: "https://tatva.info",
               logo: "https://tatva.info/logo.png",
               sameAs: [
-                "https://x.com/dhruvtwt_",
-                "https://github.com/JDhruv14/tatva",
-                "https://www.linkedin.com/in/jdhruv14",
+                "https://x.com/ashutoshjhadev",
+                "https://github.com/ashutoshjhaaa",
+                "https://www.linkedin.com/in/ashutoshjhadev",
               ],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer support",
-                url: "https://tatva.info/preface",
+                url: "https://tatva.vercel.app",
               },
             }),
           }}
@@ -186,7 +186,7 @@ export default function RootLayout({
               isPartOf: {
                 "@type": "WebSite",
                 name: "Tatva",
-                url: "https://tatva.info",
+                url: "https://tatva.vercel.app",
               },
               about: {
                 "@type": "Thing",

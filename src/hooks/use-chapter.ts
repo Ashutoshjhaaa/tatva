@@ -49,34 +49,36 @@ export const useChapter = (code: string | undefined) => {
       const chapterNum = parseInt(parts[2]);
 
       try {
-        // Get book
+        // FIX 1: Only select columns that actually exist in the books table
+        // Removed: has_translation_english, content_format (don't exist in DB)
         const { data: book, error: bookError } = await supabase
           .from("books")
-          .select("id, name_english, name_hindi, has_translation_english, content_format")
+          .select("id, name_english, name_hindi")
           .eq("code", bookCode)
           .single();
 
         if (bookError) {
-          console.error("Error fetching book:", bookError);
+          console.error("Error fetching book:", JSON.stringify(bookError, null, 2));
           return null;
         }
         if (!book) return null;
 
-        // Get section
+        // FIX 2: Use display_order instead of section_number (which doesn't exist in DB)
+        // URL format bg-1-1-1: the "1" maps to display_order in the sections table
         const { data: section, error: sectionError } = await supabase
           .from("sections")
-          .select("id, section_number, name_english, name_hindi")
+          .select("id, display_order, name_english, name_hindi")
           .eq("book_id", book.id)
-          .eq("section_number", sectionNum)
+          .eq("display_order", sectionNum)
           .single();
 
         if (sectionError) {
-          console.error("Error fetching section:", sectionError);
+          console.error("Error fetching section:", JSON.stringify(sectionError, null, 2));
           return null;
         }
         if (!section) return null;
 
-        // Get chapter
+        // Get chapter — chapter_number exists, no change needed
         const { data: chapter, error: chapterError } = await supabase
           .from("chapters")
           .select("id, chapter_number, name_english, name_hindi, total_shlokas")
@@ -85,12 +87,12 @@ export const useChapter = (code: string | undefined) => {
           .single();
 
         if (chapterError) {
-          console.error("Error fetching chapter:", chapterError);
+          console.error("Error fetching chapter:", JSON.stringify(chapterError, null, 2));
           return null;
         }
         if (!chapter) return null;
 
-        // Get shlokas
+        // Get shlokas — all these columns exist, no change needed
         const { data: shlokas, error: shlokasError } = await supabase
           .from("shlokas")
           .select("id, code, shloka_number, sanskrit, transliteration, translation_english, translation_hindi, is_highlighted")
@@ -98,15 +100,19 @@ export const useChapter = (code: string | undefined) => {
           .order("shloka_number", { ascending: true });
 
         if (shlokasError) {
-          console.error("Error fetching shlokas:", shlokasError);
+          console.error("Error fetching shlokas:", JSON.stringify(shlokasError, null, 2));
           return null;
         }
+
+        // FIX 3: hasTranslation checks if any shloka has english translation
+        // instead of the non-existent has_translation_english column on books
+        const hasTranslation = (shlokas || []).some(s => !!s.translation_english);
 
         return {
           bookCode,
           bookName: book.name_english,
           bookNameHindi: book.name_hindi,
-          sectionNumber: section.section_number,
+          sectionNumber: section.display_order ?? sectionNum,
           sectionName: section.name_english,
           sectionNameHindi: section.name_hindi,
           chapterNumber: chapter.chapter_number,
@@ -123,8 +129,8 @@ export const useChapter = (code: string | undefined) => {
             translation_hindi: s.translation_hindi,
             is_highlighted: s.is_highlighted,
           })),
-          hasTranslation: book.has_translation_english || false,
-          contentFormat: book.content_format || "shloka",
+          hasTranslation,
+          contentFormat: "shloka",
         };
       } catch (err) {
         console.error("Error in useChapter:", err);
