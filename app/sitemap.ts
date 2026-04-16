@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { slug: "yoga-vasishtha", code: "yv", priority: 0.8 },
     { slug: "markandeya-purana", code: "mp", priority: 0.8 },
     { slug: "ramopakyana", code: "ro", priority: 0.8 },
-    { slug: "parashara", code: "ph", priority: 0.8 },
+    { slug: "parashara", code: "bphs", priority: 0.8 },
   ];
 
   const bookPages: MetadataRoute.Sitemap = books.map((book) => ({
@@ -68,9 +68,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Get sections for this book
         const { data: sections } = await supabase
           .from("sections")
-          .select("id, section_number")
+          .select("id, section_number:display_order")
           .eq("book_id", book.id)
-          .order("section_number");
+          .order("display_order");
 
         if (sections) {
           for (const section of sections) {

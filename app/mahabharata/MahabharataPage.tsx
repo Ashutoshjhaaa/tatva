@@ -71,7 +71,7 @@ export default function MahabharataPage() {
     queryFn: async () => {
       const { data: book } = await supabase.from("books").select("id").eq("code", "mb").single();
       if (!book) return [];
-      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number, name_english, name_hindi").eq("book_id", book.id).order("section_number", { ascending: true });
+      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number:display_order, name_english, name_hindi").eq("book_id", book.id).order("display_order", { ascending: true });
       if (sectionsError || !sections || sections.length === 0) return [];
       const stats = await Promise.all(
         sections.map(async (section: any) => {
@@ -91,7 +91,7 @@ export default function MahabharataPage() {
     queryFn: async () => {
       const { data: book } = await supabase.from("books").select("id").eq("code", "mb").single();
       if (!book) return {};
-      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number").eq("book_id", book.id).order("section_number", { ascending: true });
+      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number:display_order").eq("book_id", book.id).order("display_order", { ascending: true });
       if (sectionsError || !sections) return {};
       const counts: Record<number, number> = {};
       for (const section of sections as any[]) {
@@ -128,7 +128,7 @@ export default function MahabharataPage() {
         </div>
         <section className="mb-16 animate-fade-up-delay-2">
           <div className="flex flex-col items-center gap-4">
-            <div className="relative w-full max-w-lg rounded-lg overflow-hidden shadow-lg"><Image src="/mahabharata.png" alt="Mahabharata" width={512} height={512} className="w-full h-auto object-cover" priority /></div>
+            <div className="relative w-full max-w-lg rounded-lg overflow-hidden shadow-lg"><Image src="/mahabharata.png" alt="Mahabharata" width={512} height={512} className="w-full object-cover" style={{ height: "auto" }} priority /></div>
             <Link href="/shlokas/mb-1-1-1" className="btn-primary inline-block font-english text-sm px-6 py-2">Begin Journey</Link>
           </div>
         </section>

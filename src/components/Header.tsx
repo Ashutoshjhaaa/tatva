@@ -83,7 +83,7 @@ const Header = ({ showSearch = true }: HeaderProps) => {
       // Fetch all data in parallel for speed
       const [booksRes, sectionsRes, chaptersRes] = await Promise.all([
         supabase.from("books").select("id, code, name_english, name_hindi").order("display_order", { ascending: true }),
-        supabase.from("sections").select("id, book_id, section_number, name_english, name_hindi").order("section_number", { ascending: true }),
+        supabase.from("sections").select("id, book_id, section_number:display_order, name_english, name_hindi").order("display_order", { ascending: true }),
         supabase.from("chapters").select("id, section_id, chapter_number, name_english, name_hindi").order("chapter_number", { ascending: true }),
       ]);
 

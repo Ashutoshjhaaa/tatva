@@ -57,7 +57,7 @@ export default function RigvedaPage() {
     queryFn: async () => {
       const { data: book } = await supabase.from("books").select("id").eq("code", "rv").single();
       if (!book) return [];
-      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number, name_english, name_hindi").eq("book_id", book.id).order("section_number", { ascending: true });
+      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number:display_order, name_english, name_hindi").eq("book_id", book.id).order("display_order", { ascending: true });
       if (sectionsError || !sections || sections.length === 0) return [];
       const stats = await Promise.all(
         sections.map(async (section: any) => {
@@ -75,7 +75,7 @@ export default function RigvedaPage() {
     queryFn: async () => {
       const { data: book } = await supabase.from("books").select("id").eq("code", "rv").single();
       if (!book) return {};
-      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number").eq("book_id", book.id).order("section_number", { ascending: true });
+      const { data: sections, error: sectionsError } = await supabase.from("sections").select("id, section_number:display_order").eq("book_id", book.id).order("display_order", { ascending: true });
       if (sectionsError || !sections) return {};
       const counts: Record<number, number> = {};
       for (const section of sections as any[]) {

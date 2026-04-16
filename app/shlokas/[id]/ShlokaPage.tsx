@@ -150,7 +150,7 @@ export default function ShlokaPage({ id }: ShlokaPageProps) {
     if (bookCode === "rm") return "काण्ड";
     if (bookCode === "mb") return "पर्व";
     if (bookCode === "rv") return "मण्डल";
-    if (bookCode === "sbp" || bookCode === "ms" || bookCode === "yv" || bookCode === "mp" || bookCode === "ph" || bookCode === "ro" || bookCode === "dm") return "स्कन्ध";
+    if (bookCode === "sbp" || bookCode === "ms" || bookCode === "yv" || bookCode === "mp" || bookCode === "bphs" || bookCode === "ro" || bookCode === "dm") return "स्कन्ध";
     return "Section";
   };
 
@@ -158,7 +158,7 @@ export default function ShlokaPage({ id }: ShlokaPageProps) {
     if (bookCode === "rm") return "सर्गः";
     if (bookCode === "mb" || bookCode === "bg") return "अध्याय";
     if (bookCode === "rv") return "सूक्त";
-    if (bookCode === "sbp" || bookCode === "ms" || bookCode === "yv" || bookCode === "mp" || bookCode === "ph" || bookCode === "ro" || bookCode === "dm") return "अध्याय";
+    if (bookCode === "sbp" || bookCode === "ms" || bookCode === "yv" || bookCode === "mp" || bookCode === "bphs" || bookCode === "ro" || bookCode === "dm") return "अध्याय";
     return "Chapter";
   };
 

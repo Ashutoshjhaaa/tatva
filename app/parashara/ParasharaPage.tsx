@@ -8,12 +8,12 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 
 const adhyayas = [
-  { id: 1, english: "Planetary Characters", sanskrit: "ग्रह स्वभाव", description: "The nature, characteristics, and significations of the nine planets (Navagraha) and their effects.", link: "ph-1-1-1" },
-  { id: 2, english: "Rashi & Bhava", sanskrit: "राशि भाव", description: "The twelve zodiac signs (Rashis), their qualities, and the twelve houses (Bhavas) of the horoscope.", link: "ph-1-2-1" },
-  { id: 3, english: "Dasha Systems", sanskrit: "दशा पद्धति", description: "Planetary period systems including Vimshottari Dasha for timing predictions and life events.", link: "ph-1-3-1" },
-  { id: 4, english: "Yogas", sanskrit: "योग", description: "Planetary combinations (Yogas) that indicate specific life patterns, fortunes, and challenges.", link: "ph-1-4-1" },
-  { id: 5, english: "Divisional Charts", sanskrit: "वर्ग कुण्डली", description: "The sixteen Vargas (divisional charts) for detailed analysis of specific life areas.", link: "ph-1-5-1" },
-  { id: 6, english: "Remedial Measures", sanskrit: "उपाय", description: "Astrological remedies including mantras, gemstones, and rituals to mitigate planetary afflictions.", link: "ph-1-6-1" },
+  { id: 1, english: "Planetary Characters", sanskrit: "ग्रह स्वभाव", description: "The nature, characteristics, and significations of the nine planets (Navagraha) and their effects.", link: "bphs-1-1-1" },
+  { id: 2, english: "Rashi & Bhava", sanskrit: "राशि भाव", description: "The twelve zodiac signs (Rashis), their qualities, and the twelve houses (Bhavas) of the horoscope.", link: "bphs-1-2-1" },
+  { id: 3, english: "Dasha Systems", sanskrit: "दशा पद्धति", description: "Planetary period systems including Vimshottari Dasha for timing predictions and life events.", link: "bphs-1-3-1" },
+  { id: 4, english: "Yogas", sanskrit: "योग", description: "Planetary combinations (Yogas) that indicate specific life patterns, fortunes, and challenges.", link: "bphs-1-4-1" },
+  { id: 5, english: "Divisional Charts", sanskrit: "वर्ग कुण्डली", description: "The sixteen Vargas (divisional charts) for detailed analysis of specific life areas.", link: "bphs-1-5-1" },
+  { id: 6, english: "Remedial Measures", sanskrit: "उपाय", description: "Astrological remedies including mantras, gemstones, and rituals to mitigate planetary afflictions.", link: "bphs-1-6-1" },
 ];
 
 const themeCategories = [
@@ -55,7 +55,7 @@ export default function ParasharaPage() {
         <section className="mb-16 animate-fade-up-delay-2">
           <div className="flex flex-col items-center gap-4">
             <div className="relative w-full max-w-lg rounded-lg overflow-hidden shadow-lg"><Image src="/parahar%20sastra.png" alt="Parashara Hora Shastra" width={512} height={512} className="w-full h-auto object-cover" priority /></div>
-            <Link href="/shlokas/ph-1-1-1" className="btn-primary inline-block font-english text-sm px-6 py-2">Begin Journey</Link>
+            <Link href="/shlokas/bphs-1-1-1" className="btn-primary inline-block font-english text-sm px-6 py-2">Begin Journey</Link>
           </div>
         </section>
 

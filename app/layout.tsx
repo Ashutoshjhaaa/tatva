@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/logo.png", sizes: "180x180" }],
   },
-  manifest: "/site.webmanifest",
+  // manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -112,7 +112,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         {/* Google Fonts - preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

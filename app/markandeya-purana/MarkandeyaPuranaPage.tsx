@@ -8,10 +8,10 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 
 const sections = [
-  { id: 1, english: "Creation Narratives", sanskrit: "सृष्टि कथा", description: "Stories of cosmic creation, the origin of beings, and the structure of the universe as narrated by Sage Markandeya.", link: "mp-1-1-1" },
-  { id: 2, english: "Devi Mahatmyam", sanskrit: "देवी माहात्म्यम्", description: "The famous 700 verses glorifying the Divine Mother - the most celebrated portion of this Purana.", link: "mp-2-1-1" },
+  { id: 1, english: "Creation Narratives", sanskrit: "सृष्टि कथा", description: "Stories of cosmic creation, the origin of beings, and the structure of the universe as narrated by Sage Markandeya.", link: "mp-1-45-1" },
+  { id: 2, english: "Devi Mahatmyam", sanskrit: "देवी माहात्म्यम्", description: "The famous 700 verses glorifying the Divine Mother - the most celebrated portion of this Purana.", link: "mp-2-81-1" },
   { id: 3, english: "Markandeya's Stories", sanskrit: "मार्कण्डेय कथा", description: "Various stories and teachings narrated by the immortal sage Markandeya to other sages.", link: "mp-3-1-1" },
-  { id: 4, english: "Genealogies", sanskrit: "वंशावली", description: "Royal lineages, genealogies of kings and sages, connecting mythological history.", link: "mp-4-1-1" },
+  { id: 4, english: "Genealogies", sanskrit: "वंशावली", description: "Royal lineages, genealogies of kings and sages, connecting mythological history.", link: "mp-4-94-1" },
 ];
 
 const themeCategories = [
@@ -47,7 +47,7 @@ export default function MarkandeyaPuranaPage() {
         <section className="mb-16 animate-fade-up-delay-2">
           <div className="flex flex-col items-center gap-4">
             <div className="relative w-full max-w-lg rounded-lg overflow-hidden shadow-lg"><Image src="/markandaye%20puran.png" alt="Markandeya Purana" width={512} height={512} className="w-full h-auto object-cover" priority /></div>
-            <Link href="/shlokas/mp-1-1-1" className="btn-primary inline-block font-english text-sm px-6 py-2">Begin Journey</Link>
+            <Link href="/shlokas/mp-3-1-1" className="btn-primary inline-block font-english text-sm px-6 py-2">Begin Journey</Link>
           </div>
         </section>
 

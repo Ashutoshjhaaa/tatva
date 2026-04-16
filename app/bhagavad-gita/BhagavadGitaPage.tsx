@@ -65,7 +65,7 @@ export default function BhagavadGitaPage() {
     queryFn: async () => {
       const { data: book } = await supabase.from("books").select("id").eq("code", "bg").single();
       if (!book) return [];
-      const { data: sections } = await supabase.from("sections").select("id, section_number, name_english, name_hindi").eq("book_id", book.id).order("section_number", { ascending: true });
+      const { data: sections } = await supabase.from("sections").select("id, section_number:display_order, name_english, name_hindi").eq("book_id", book.id).order("display_order", { ascending: true });
       if (!sections || sections.length === 0) return [];
       const { data: chaptersData } = await supabase.from("chapters").select("id, chapter_number, name_english, name_hindi").eq("section_id", sections[0].id).order("chapter_number", { ascending: true });
       if (!chaptersData || chaptersData.length === 0) return [];
