@@ -162,7 +162,7 @@ export default function PrefacePage() {
             {/* Support Button */}
             <div className="flex justify-center mb-12">
               <a
-                href="https://buymeacoffee.com/ashutoshjhadev"
+                href="https://ashutoshjh.me"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 btn-primary px-6 py-3 rounded-full font-medium transition-transform hover:scale-105"
