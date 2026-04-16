@@ -39,7 +39,7 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
               Digital Museum of Timeless Wisdom
             </p>
             <div className="flex items-center gap-2 mt-2">
-              <span className="text-xs text-muted-foreground font-english">Developed by</span>
+              <span className="text-xs text-muted-foreground font-english">Developed by Ashutosh Jha</span>
               <AvatarCircles
                 className="scale-75 origin-left"
                 avatarUrls={[
@@ -110,24 +110,6 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
                   <Link href="/structure" className="text-sm text-muted-foreground hover:text-primary dark:hover:text-accent transition-colors font-english">
                     Structure
                   </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Buy me a coffee Column */}
-            <div className="flex-shrink-0">
-              <h3 className="text-sm font-semibold text-foreground mb-4 font-english">Support</h3>
-              <ul className="space-y-1.5">
-                <li>
-                  <a
-                    href="https://buymeacoffee.com/ashutoshjhadev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary dark:hover:text-accent transition-colors font-english"
-                  >
-                    <Coffee className="h-[14px] w-[14px] shrink-0" />
-                    <span>Buy me a coffee</span>
-                  </a>
                 </li>
               </ul>
             </div>
