@@ -56,51 +56,53 @@ export const useChapter = (code: string | undefined) => {
 
       try {
         // ── 1. Book ────────────────────────────────────────────────────────
-        // Use maybeSingle() so 0 rows returns null instead of throwing PGRST116
-        const { data: book, error: bookError } = await supabase
+        const { data: books, error: bookError } = await supabase
           .from("books")
           .select("id, code, name_english, name_hindi")
-          .eq("code", bookCode)
-          .maybeSingle();                          // ← KEY FIX
+          .eq("code", bookCode);
 
         if (bookError) {
           console.error("Error fetching book:", bookError.message);
           return null;
         }
+        
+        const book = books && books.length > 0 ? books[0] : null;
         if (!book) {
           console.error(`No book found with code="${bookCode}". Check your books table.`);
           return null;
         }
 
         // ── 2. Section ─────────────────────────────────────────────────────
-        const { data: section, error: sectionError } = await supabase
+        const { data: sections, error: sectionError } = await supabase
           .from("sections")
           .select("id, display_order, name_english, name_hindi")
           .eq("book_id", book.id)
-          .eq("display_order", sectionNum)
-          .maybeSingle();                          // ← KEY FIX
+          .eq("display_order", sectionNum);
 
         if (sectionError) {
           console.error("Error fetching section:", sectionError.message);
           return null;
         }
+        
+        const section = sections && sections.length > 0 ? sections[0] : null;
         if (!section) {
           console.error(`No section found with book_id=${book.id} display_order=${sectionNum}.`);
           return null;
         }
 
         // ── 3. Chapter ─────────────────────────────────────────────────────
-        const { data: chapter, error: chapterError } = await supabase
+        const { data: chapters, error: chapterError } = await supabase
           .from("chapters")
           .select("id, chapter_number, name_english, name_hindi, total_shlokas")
           .eq("section_id", section.id)
-          .eq("chapter_number", chapterNum)
-          .maybeSingle();                          // ← KEY FIX
+          .eq("chapter_number", chapterNum);
 
         if (chapterError) {
           console.error("Error fetching chapter:", chapterError.message);
           return null;
         }
+        
+        const chapter = chapters && chapters.length > 0 ? chapters[0] : null;
         if (!chapter) {
           console.error(`No chapter found with section_id=${section.id} chapter_number=${chapterNum}.`);
           return null;
